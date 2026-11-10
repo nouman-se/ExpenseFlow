@@ -1,0 +1,107 @@
+/* General page appearance */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f5f7fb;
+    color: #172b4d;
+}
+
+/* Navigation */
+.navbar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.brand-text,
+.brand-text:hover {
+    color: #172b4d;
+    font-size: 1.5rem;
+}
+
+/* Home page introduction */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f0f5ff, #f8fafc);
+}
+
+.eyebrow {
+    color: #2454a6;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* Cards */
+.budget-preview {
+    border-radius: 20px;
+}
+
+.feature-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background-color: #eaf1ff;
+    color: #2454a6;
+    font-weight: 700;
+}
+
+/* Shared button shape */
+.btn {
+    border-radius: 10px;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #172b4d;
+    color: #ffffff;
+}
+
+/* Reduce spacing on smaller screens */
+@media (max-width: 767px) {
+    .hero-section {
+        padding: 48px 0;
+    }
+}
+/* Login and signup cards */
+.auth-card {
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+/* Shared form field appearance */
+.form-control {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border-color: #cbd5e1;
+}
+
+/* Separate the demo links from the login form */
+.demo-panel {
+    background-color: #f0f5ff;
+    border: 1px solid #dbe7ff;
+    border-radius: 12px;
+}
+/* Shared dashboard cards and panels */
+.summary-card,
+.dashboard-panel {
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+}
+
+.summary-card {
+    border-top: 4px solid #2454a6;
+}
+
+/* Comfortable spacing inside dashboard tables */
+.dashboard-panel .table th,
+.dashboard-panel .table td 
+{
+    padding: 16px 12px;
+}

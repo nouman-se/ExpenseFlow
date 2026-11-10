@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ExpenseFlow | Sign Up</title>
+
+    <!-- Bootstrap styles -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+    >
+
+    <!-- Shared ExpenseFlow styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar bg-white border-bottom"
+         aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand fw-bold brand-text" href="index.html">
+                ExpenseFlow
+            </a>
+
+            <a href="index.html" class="nav-link">
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1 py-5">
+        <div class="container">
+            <div class="card auth-card border-0 shadow-sm mx-auto">
+                <div class="card-body p-4 p-md-5">
+
+                    <div class="text-center mb-4">
+                        <p class="eyebrow">GET STARTED WITH EXPENSEFLOW</p>
+                        <h1 class="h2 fw-bold">Create your account</h1>
+                        <p class="text-secondary mb-0">
+                            Join as a member to submit and track expense claims.
+                        </p>
+                    </div>
+
+                    <form id="signupForm">
+                        <!-- Full name -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">
+                                Full name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullName"
+                                class="form-control"
+                                placeholder="Muhammad Nouman"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                Email address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                class="form-control"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                autocomplete="new-password"
+                                minlength="8"
+                                aria-describedby="passwordHelp"
+                                required
+                            >
+
+                            <div id="passwordHelp" class="form-text">
+                                Use at least 8 characters for this demo.
+                            </div>
+                        </div>
+
+                        <!-- Confirm password -->
+                        <div class="mb-4">
+                            <label for="confirmPassword" class="form-label">
+                                Confirm password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                class="form-control"
+                                autocomplete="new-password"
+                                minlength="8"
+                                required
+                            >
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary w-100">
+                            Create Account
+                        </button>
+
+                        <p id="signupMessage"
+                           class="small mt-3 mb-0"
+                           role="status"></p>
+                    </form>
+
+                    <p class="text-center text-secondary mt-4 mb-0">
+                        Already have an account?
+                        <a href="login.html">Log in</a>
+                    </p>
+
+                    <div class="demo-panel mt-4 p-3">
+                        <p class="small text-secondary mb-0">
+                            Static registration preview.
+                            No account is created and your details are not saved.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer py-4">
+        <div class="container d-flex flex-column flex-md-row
+                    justify-content-between gap-2">
+            <span class="fw-bold">ExpenseFlow</span>
+            <span class="small">
+                Budget and expense reimbursement management.
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        const signupForm = document.getElementById("signupForm");
+        const fullName = document.getElementById("fullName");
+        const password = document.getElementById("password");
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+        const signupMessage =
+            document.getElementById("signupMessage");
+
+        // Clear an old message when the user edits the form.
+        signupForm.addEventListener("input", function () {
+            signupMessage.textContent = "";
+        });
+
+        signupForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Reject a name containing only spaces.
+            if (fullName.value.trim() === "") {
+                signupMessage.className =
+                    "small mt-3 mb-0 text-danger";
+
+                signupMessage.textContent =
+                    "Please enter your name, not just spaces.";
+
+                fullName.focus();
+                return;
+            }
+
+            // Check whether both passwords match.
+            if (password.value !== confirmPassword.value) {
+                signupMessage.className =
+                    "small mt-3 mb-0 text-danger";
+
+                signupMessage.textContent =
+                    "Passwords do not match. Please enter them again.";
+
+                confirmPassword.focus();
+                return;
+            }
+
+            // Report validation only; no account is created.
+            signupMessage.className =
+                "small mt-3 mb-0 text-success";
+
+            signupMessage.textContent =
+                "Your entries passed the demo checks. No account has been created.";
+        });
+    </script>
+</body>
+</html>

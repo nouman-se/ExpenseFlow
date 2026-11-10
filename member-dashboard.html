@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ExpenseFlow | Member Dashboard</title>
+
+    <!-- Bootstrap styles -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous"
+    >
+
+    <!-- Shared ExpenseFlow styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <!-- Dashboard navigation -->
+    <nav class="navbar navbar-expand-lg bg-white border-bottom"
+         aria-label="Member navigation">
+        <div class="container">
+            <a class="navbar-brand fw-bold brand-text" href="index.html">
+                ExpenseFlow
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#memberNavbar"
+                aria-controls="memberNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="memberNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           href="member-dashboard.html"
+                           aria-current="page">
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#my-claims">
+                            My Claims
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <span class="badge text-bg-primary">Member</span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            Exit Demo
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow-1 py-5">
+        <div class="container">
+            <!-- Page heading -->
+            <div class="d-flex flex-column flex-md-row
+                        justify-content-between align-items-md-center
+                        gap-3 mb-4">
+                <div>
+                    <p class="eyebrow mb-2">MEMBER WORKSPACE</p>
+                    <h1 class="h2 fw-bold">Welcome, Nouman</h1>
+                    <p class="text-secondary mb-0">
+                        Keep track of your expenses and approval decisions.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="newClaimButton"
+                    class="btn btn-primary align-self-start align-self-md-center"
+                >
+                    + New Claim
+                </button>
+            </div>
+
+            <div class="alert alert-info mb-4">
+                <strong>Demo preview:</strong>
+                The member details and expense records below are sample data.
+            </div>
+
+            <p id="claimMessage"
+               class="small text-primary"
+               role="status"></p>
+
+            <!-- Claim summary -->
+            <section aria-labelledby="summaryHeading" class="mb-5">
+                <h2 id="summaryHeading" class="h5 mb-3">
+                    Your claim summary
+                </h2>
+
+                <div class="row g-3">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card summary-card h-100">
+                            <div class="card-body p-4">
+                                <p class="text-secondary mb-2">
+                                    Total Claims
+                                </p>
+                                <p class="h2 fw-bold mb-1">4</p>
+                                <p class="small text-secondary mb-0">
+                                    PKR 12,000 submitted
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card summary-card h-100">
+                            <div class="card-body p-4">
+                                <p class="text-secondary mb-2">
+                                    Pending
+                                </p>
+                                <p class="h2 fw-bold mb-1">2</p>
+                                <p class="small text-secondary mb-0">
+                                    PKR 5,000 awaiting review
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card summary-card h-100">
+                            <div class="card-body p-4">
+                                <p class="text-secondary mb-2">
+                                    Approved
+                                </p>
+                                <p class="h2 fw-bold mb-1">1</p>
+                                <p class="small text-secondary mb-0">
+                                    PKR 6,000 approved
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card summary-card h-100">
+                            <div class="card-body p-4">
+                                <p class="text-secondary mb-2">
+                                    Rejected
+                                </p>
+                                <p class="h2 fw-bold mb-1">1</p>
+                                <p class="small text-secondary mb-0">
+                                    PKR 1,000 rejected
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personal expense records -->
+            <section id="my-claims" aria-labelledby="claimsHeading">
+                <div class="card dashboard-panel">
+                    <div class="card-body p-4">
+                        <h2 id="claimsHeading" class="h5 fw-bold">
+                            My Claims
+                        </h2>
+                        <p class="text-secondary small mb-4">
+                            Review your submitted expenses and their current status.
+                        </p>
+
+                        <div class="table-responsive">
+                            <table class="table align-middle mb-0">
+                                <caption>
+                                    Four sample claims belonging to the demo member.
+                                </caption>
+
+                                <thead class="table-light">
+                                    <tr>
+                                        <th scope="col">Claim ID</th>
+                                        <th scope="col">Expense</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Expense Date</th>
+                                        <th scope="col" class="text-end">
+                                            Amount (PKR)
+                                        </th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Review Note</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">
+                                            EF-104
+                                        </th>
+                                        <td>Event refreshments</td>
+                                        <td>Food</td>
+                                        <td class="text-nowrap">09 Nov 2026</td>
+                                        <td class="text-end">3,500</td>
+                                        <td>
+                                            <span class="badge text-bg-warning">
+                                                Pending
+                                            </span>
+                                        </td>
+                                        <td class="small text-secondary">
+                                            Awaiting review
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">
+                                            EF-103
+                                        </th>
+                                        <td>Poster printing</td>
+                                        <td>Printing</td>
+                                        <td class="text-nowrap">08 Nov 2026</td>
+                                        <td class="text-end">1,500</td>
+                                        <td>
+                                            <span class="badge text-bg-warning">
+                                                Pending
+                                            </span>
+                                        </td>
+                                        <td class="small text-secondary">
+                                            Awaiting review
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">
+                                            EF-102
+                                        </th>
+                                        <td>Workshop supplies</td>
+                                        <td>Materials</td>
+                                        <td class="text-nowrap">06 Nov 2026</td>
+                                        <td class="text-end">6,000</td>
+                                        <td>
+                                            <span class="badge text-bg-success">
+                                                Approved
+                                            </span>
+                                        </td>
+                                        <td class="small text-secondary">
+                                            Approved by treasurer
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" class="text-nowrap">
+                                            EF-101
+                                        </th>
+                                        <td>Local transport</td>
+                                        <td>Travel</td>
+                                        <td class="text-nowrap">04 Nov 2026</td>
+                                        <td class="text-end">1,000</td>
+                                        <td>
+                                            <span class="badge text-bg-danger">
+                                                Rejected
+                                            </span>
+                                        </td>
+                                        <td class="small text-secondary">
+                                            Trip purpose was not explained.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <p class="small text-secondary mt-3 mb-0">
+                Approved means the claim was accepted.
+                It does not confirm that reimbursement has been paid.
+            </p>
+        </div>
+    </main>
+
+    <footer class="site-footer py-4">
+        <div class="container d-flex flex-column flex-md-row
+                    justify-content-between gap-2">
+            <span class="fw-bold">ExpenseFlow</span>
+            <span class="small">
+                Budget and expense reimbursement management.
+            </span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap mobile navigation -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Static preview interaction -->
+    <script>
+        const newClaimButton =
+            document.getElementById("newClaimButton");
+
+        const claimMessage =
+            document.getElementById("claimMessage");
+
+        newClaimButton.addEventListener("click", function () {
+            claimMessage.textContent =
+                "Expense submission will be added in a later deliverable. This preview does not create or save claims.";
+        });
+    </script>
+</body>
+</html>
